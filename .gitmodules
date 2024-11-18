@@ -1,0 +1,6 @@
+[submodule "django_annotation_UI"]
+	path = django_annotation_UI
+	url = https://github.com/MattSou/django_annotation_UI.git
+[submodule "autres expérimentations/YOLO-World/YOLO-World"]
+	path = autres expérimentations/YOLO-World/YOLO-World
+	url = https://github.com/AILab-CVC/YOLO-World.git

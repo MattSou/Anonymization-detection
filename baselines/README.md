@@ -1,0 +1,2 @@
+## Overview
+On propose ici les deux baselines (ResNet et DINOv2) utilisées et la reproduction des résultats obtenus avec. On trouve dans chaque dossier la marche à suivre pour l'utilisation des baselines.

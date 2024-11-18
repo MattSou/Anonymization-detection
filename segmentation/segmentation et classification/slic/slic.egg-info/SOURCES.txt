@@ -1,0 +1,5 @@
+setup.py
+slic.egg-info/PKG-INFO
+slic.egg-info/SOURCES.txt
+slic.egg-info/dependency_links.txt
+slic.egg-info/top_level.txt

@@ -1,0 +1,55 @@
+dataset : 
+  name : true_anonymized_test
+  root : /home/msouda/Datasets
+
+  
+
+preprocessing :
+  deduplication : false
+  deduplication_file : clusters2.json
+  train_val_frac : 0.7
+  data_augmentation : 
+    augmentation : true
+    factor : 2
+    transformations :
+      - name : RandomHorizontalFlip
+        params :
+          p : 0.5
+      - name : RandomVerticalFlip
+        params :
+          p : 0.5
+  base_transformations :
+    - name : Resize
+      params :
+        size : (224,224)
+    - name : ToTensor
+      params : {}
+
+model :
+  pretrained : true
+  num_classes : 2
+
+train :
+  n_epochs : 2
+  optimizer : 
+    name : Adam
+    learning_rate : 0.001
+    weight_decay : 0
+  batch_size : 64
+  num_workers : 0
+  loss : nn.CrossEntropyLoss()
+
+val_metrics :
+  - loss
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+
+val_epochs_interval : 1
+save_epochs_interval : 1
+
+save :
+  model : ../../Models/
+  metadata : ../../Metadata/
+

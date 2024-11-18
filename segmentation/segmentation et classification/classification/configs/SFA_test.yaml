@@ -1,0 +1,32 @@
+dataset : 
+  test_annotations : '/home/msouda/Datasets/caltech-101/annotations_test6.csv'
+
+preprocessing :
+  transformations :
+    - name : RandomHorizontalFlip
+      params :
+        p : 0.5
+    - name : RandomVerticalFlip
+      params :
+        p : 0.5
+    - name : Resize
+      params :
+        size : (128,128)
+    - name : ToTensor
+      params : {}
+
+num_classes : 5
+input_size : 128
+num_workers : 0
+
+metrics :
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+
+save : 
+  predictions : "results.csv"
+  metrics : "metrics.json"
+
+

@@ -1,0 +1,27 @@
+dataset : 
+  name : true_anonymized_test
+  root : /home/msouda/Datasets/
+
+model :
+  name : dinov2_vitg14
+
+preprocessing :
+  base_transformations :
+    - name : Resize
+      params :
+        size : (224,224)
+    - name : ToTensor
+      params : {}
+
+
+metrics :
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+
+save : 
+  embeddings : ''
+  results : "results.csv"
+
+

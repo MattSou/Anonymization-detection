@@ -1,0 +1,11 @@
+dataset : 
+  name : true_anonymized_test
+  root : /home/msouda/Datasets
+
+model :
+  name : 'test_dino_svm'
+
+save :
+  model : ../../Models
+
+

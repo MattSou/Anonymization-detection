@@ -1,0 +1,38 @@
+dataset :
+  root : /home/msouda/Datasets
+  base_dir : new_synth
+  
+preprocessing :
+  train_test_split : 0.75
+  neg_frac : 0.3
+  base_transformations :
+    - name : Resize
+      params :
+        size : (256,256)
+    - name : ToTensor
+      params : {}
+
+num_classes : 3
+
+train :
+  n_epochs : 2
+  optimizer : 
+    name : SGD
+    learning_rate : 0.001
+    weight_decay : 0
+    momentum : 0.9
+  scheduler :
+    name : StepLR
+    params :
+      step_size : 20
+      gamma : 0.1
+  batch_size : 32
+  num_workers : 0
+  loss : nn.CrossEntropyLoss
+  loss_weights : [1.0, 5.0, 5.0]
+
+
+save :
+  model : ../../Models/
+  metadata : ../../Metadata/
+

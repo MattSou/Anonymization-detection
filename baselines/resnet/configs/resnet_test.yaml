@@ -1,0 +1,25 @@
+dataset : 
+  name : true_anonymized_test
+  root : /home/msouda/Datasets/
+
+preprocessing :
+  base_transformations :
+    - name : Resize
+      params :
+        size : (224,224)
+    - name : ToTensor
+      params : {}
+
+num_classes : 2
+num_workers : 0
+
+metrics :
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+
+save : 
+  predictions : "results.csv"
+
+

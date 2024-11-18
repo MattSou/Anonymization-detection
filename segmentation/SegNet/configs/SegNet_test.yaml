@@ -1,0 +1,23 @@
+dataset :
+  root : /home/msouda/Datasets
+  base_dir : new_synth
+  
+preprocessing :
+  base_transformations :
+    - name : Resize
+      params :
+        size : (256,256)
+    - name : ToTensor
+      params : {}
+
+num_classes : 3
+num_workers : 0
+
+metrics :
+  - accuracy
+  - mIoU
+
+save : 
+  predictions : ../../Masks/
+
+

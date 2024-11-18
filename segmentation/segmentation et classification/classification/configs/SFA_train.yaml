@@ -1,0 +1,68 @@
+dataset : 
+  train_annotations : '/home/msouda/Datasets/SFA_patches_5/annotations5.csv'
+  test_annotations : '/home/msouda/Datasets/caltech-101/annotations_test6.csv'
+
+  
+
+preprocessing :
+  transformations :
+    - name : RandomHorizontalFlip
+      params :
+        p : 0.5
+    - name : RandomVerticalFlip
+      params :
+        p : 0.5
+    - name : Resize
+      params :
+        size : (128,128)
+    - name : ToTensor
+      params : {}
+  patch_transformations : 
+    - name : RandomHorizontalFlip
+      params :
+        p : 0.5
+    - name : RandomVerticalFlip
+      params :
+        p : 0.5
+    - name : ToTensor
+      params : {}
+
+model :
+  input_size : 128
+  num_classes : 5
+
+train :
+  n_epochs : 2
+  optimizer : 
+    name : SGD
+    params :
+      lr : 0.001
+      weight_decay : 0.0003
+      momentum : 0.9
+  scheduler :
+    name : ReduceLROnPlateau
+    params :
+      mode : min
+      factor : 0.1
+      patience : 5
+      verbose : True
+      threshold : 0.05
+      threshold_mode : 'rel'
+      cooldown : 20
+      min_lr : 0
+      eps : 1e-08
+  batch_size : 64
+  num_workers : 0
+  loss : nn.CrossEntropyLoss()
+
+val_metrics :
+  - loss
+  - accuracy
+
+val_epochs_interval : 1
+save_epochs_interval : 1
+
+save :
+  model : ../../../Models/
+  metadata : ../../../Metadata/
+

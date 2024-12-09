@@ -15,7 +15,7 @@ preprocessing :
 num_classes : 3
 
 train :
-  n_epochs : 2
+  n_epochs : 20
   optimizer : 
     name : SGD
     learning_rate : 0.001

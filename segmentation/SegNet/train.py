@@ -59,7 +59,7 @@ for epoch in range(num_epochs):
         epoch_loss += loss.item()
         # if (i+1) % 5 == 0:
         #     print(f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{len(dataloader)}], Loss: {loss.item()}')
-    #scheduler.step(loss.item())
+    scheduler.step(loss.item())
     losses.append(epoch_loss)
     print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss}')
 
